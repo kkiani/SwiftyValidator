@@ -2,14 +2,13 @@ import XCTest
 @testable import SwiftyValidator
 
 final class SwiftyValidatorTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(SwiftyValidator().text, "Hello, World!")
+    let mockPattern = "[A-z]+@[A-z]+.[A-z]+"
+    let mockString1 = "kiarash@gmail.com"
+    let mockString2 = "kiarashgmail.com"
+    var optMockString: String?
+    
+    func test_validator(){
+        XCTAssertTrue(mockString1.validate(mockPattern))
+        XCTAssertFalse(mockString2.validate(mockPattern))
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }
